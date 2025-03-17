@@ -10,21 +10,28 @@ import { RouterPanes } from 'sanity/structure'
 import LoadingIndicator from '../LoadingIndicator'
 
 const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
+  // * Initialize the Studio client
   const client = useClient({ apiVersion: '2025-03-01' }).withConfig({
     perspective: 'previewDrafts',
   })
+
+  // * Initialize the router and get the pane groups
   const { navigate } = useRouter()
   const routerState = useRouterState()
+  // * Cast the panes to RouterPanes
   const routerPaneGroups = useMemo<RouterPanes>(
     () => (routerState?.panes || []) as RouterPanes,
     [routerState?.panes],
   )
 
+  // * Get the current user
   const currentUser = useCurrentUser()
 
+  // * States
   const [listOptions, setListOptions] = useState<TitledListValue<string>[]>([])
   const [loading, setLoading] = useState(true)
 
+  // * Fetch and subscribe to the listOption documents
   let subscription: Subscription
   useEffect(() => {
     const query = groq`*[_type == "listOption"] | order(title asc) { "_key": _id, title, value, "_type": 'dynamicListItem' }`
@@ -71,7 +78,6 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
       ...routerPaneGroups,
       [
         {
-          // no id means a new document
           id: uuid(),
           params: {
             type: 'listOption',
@@ -86,7 +92,9 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
     })
   }
 
+  // * Check if the current user is an admin to show the edit options button
   const isAdmin = currentUser?.roles?.some((role) => role.name === 'administrator')
+
   return (
     <Stack space={2}>
       {props.renderDefault({

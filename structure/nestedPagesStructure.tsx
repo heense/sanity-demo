@@ -20,8 +20,8 @@ export const nestedPagesStructure = async (
         .title('English Pages')
         .filter(`_type == "page" && language == "en"`)
         .apiVersion(apiVersion)
-        .child(async (pageId, options) => {
-          const languagePages = await documentStore
+        .child((pageId, options) => {
+          const languagePages = documentStore
             .listenQuery(
               groq`*[ _type == "translation.metadata" && references($pageId) ][0]`,
               { pageId: 'page._id' },
@@ -47,7 +47,6 @@ export const nestedPagesStructure = async (
                 })
               }),
             )
-            .toPromise()
 
           return S.list()
             .title('Details')
@@ -60,7 +59,6 @@ export const nestedPagesStructure = async (
                 .child(S.document().id(pageId).schemaType('page')),
               S.divider(),
               // Add translations here
-              ...(languagePages || []),
             ])
         }),
     )

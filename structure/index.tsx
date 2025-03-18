@@ -17,7 +17,7 @@ export const customStructure = async (S: StructureBuilder, context: StructureRes
   return S.list()
     .title('Content')
     .items([
-      // await nestedPagesStructure(S, context),
+      S.documentTypeListItem('page').title('All pages'),
       await internationalisedPagesStructure(S, context),
       S.divider(),
       S.listItem()

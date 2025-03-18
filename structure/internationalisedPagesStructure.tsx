@@ -50,6 +50,7 @@ export const internationalisedPagesStructure = async (
           )
       }),
     )
+
   return S.listItem()
     .title('Internationalised Pages')
     .id('internationalised-pages-list')

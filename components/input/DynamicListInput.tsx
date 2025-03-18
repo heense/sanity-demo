@@ -4,14 +4,21 @@ import { uuid } from '@sanity/uuid'
 import groq from 'groq'
 import { ComponentType, useEffect, useMemo, useState } from 'react'
 import { Subscription } from 'rxjs'
-import { ArrayOfObjectsInputProps, TitledListValue, useClient, useCurrentUser } from 'sanity'
+import {
+  ArrayOfObjectsInputProps,
+  TitledListValue,
+  useClient,
+  useCurrentUser,
+  useFormValue,
+} from 'sanity'
 import { useRouter, useRouterState } from 'sanity/router'
 import { RouterPanes } from 'sanity/structure'
+import { apiVersion } from '../../lib/apiVersion'
 import LoadingIndicator from '../LoadingIndicator'
 
 const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
   // * Initialize the Studio client
-  const client = useClient({ apiVersion: '2025-03-01' }).withConfig({
+  const client = useClient({ apiVersion }).withConfig({
     perspective: 'previewDrafts',
   })
 
@@ -27,6 +34,9 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
   // * Get the current user
   const currentUser = useCurrentUser()
 
+  // * Get the language
+  const documentLanguage = useFormValue(['language'])
+
   // * States
   const [listOptions, setListOptions] = useState<TitledListValue<string>[]>([])
   const [loading, setLoading] = useState(true)
@@ -34,17 +44,29 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
   // * Fetch and subscribe to the listOption documents
   let subscription: Subscription
   useEffect(() => {
-    const query = groq`*[_type == "listOption"] | order(title asc) { "_key": _id, title, value, "_type": 'dynamicListItem' }`
+    const query = groq`*[_type == "listOption"] | order(title asc) { 
+      "_key": _id, 
+      "title": coalesce(
+        internationalisedTitle[ _key == $documentLanguage ][0].value,
+        title,
+        "No title or translation available"
+      ), 
+      "value": value.current, 
+      "_type": 'dynamicListItem' 
+    }`
 
+    const params = {
+      documentLanguage,
+    }
     const listen = () => {
       subscription = client
-        .listen(query, {
+        .listen(query, params, {
           visibility: 'query',
           tag: `dynamic-list-input-${props.id}`,
           includeResult: false,
         })
         .subscribe(() =>
-          client.fetch(query).then((data) => {
+          client.fetch(query, params).then((data) => {
             setListOptions(data)
             setLoading(false)
           }),
@@ -52,7 +74,7 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
     }
 
     client
-      .fetch(query)
+      .fetch(query, params)
       .then((data) => {
         setListOptions(data)
         setLoading(false)
@@ -116,7 +138,7 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
             icon={EditIcon}
             onClick={() =>
               navigate({
-                panes: [[{ id: 'listOption' }]],
+                panes: [[{ id: 'siteSettings' }], [{ id: 'listOption' }]],
               })
             }
           />

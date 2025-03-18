@@ -15,11 +15,13 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/document-internationalization": "^3.3.1",
     "@sanity/vision": "^3.79.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.79.0",
+    "sanity-plugin-internationalized-array": "^3.1.2",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

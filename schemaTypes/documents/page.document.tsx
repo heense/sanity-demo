@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { PagePreviewMedia } from '../../components/previews/PagePreview'
 import boringList from '../specialFields/boringList'
 import dynamicList from '../specialFields/dynamicList'
 
@@ -24,10 +25,30 @@ export default defineType({
     }),
     boringList,
     dynamicList,
+
     defineField({
       name: 'body',
       title: 'Body',
       type: 'body',
     }),
+
+    defineField({
+      name: 'language',
+      type: 'string',
+      hidden: true,
+    }),
   ],
+
+  preview: {
+    select: {
+      title: 'title',
+      language: 'language',
+    },
+    prepare({ title, language }) {
+      return {
+        title,
+        media: language ? <PagePreviewMedia language={language} /> : undefined,
+      }
+    },
+  },
 })

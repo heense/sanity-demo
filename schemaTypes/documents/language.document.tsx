@@ -18,7 +18,10 @@ export default defineType({
       name: 'code',
       title: 'Code',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required()
+          .lowercase()
+          .regex(/^[a-z0-9._]*$/),
     },
     {
       name: 'isDefault',

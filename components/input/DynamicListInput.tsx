@@ -13,7 +13,7 @@ import {
 } from 'sanity'
 import { useRouter, useRouterState } from 'sanity/router'
 import { RouterPanes } from 'sanity/structure'
-import { apiVersion } from '../../lib/apiVersion'
+import { apiVersion } from '../../lib/api'
 import LoadingIndicator from '../LoadingIndicator'
 
 interface TitledListValueWithDescription extends TitledListValue<string> {

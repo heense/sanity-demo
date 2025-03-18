@@ -3,7 +3,7 @@ import groq from 'groq'
 import { map } from 'rxjs'
 import { StructureBuilder, StructureResolverContext } from 'sanity/structure'
 import { PagePreviewMedia } from '../components/previews/PagePreview'
-import { apiVersion } from '../lib/apiVersion'
+import { apiVersion } from '../lib/api'
 
 export const internationalisedPagesStructure = async (
   S: StructureBuilder,

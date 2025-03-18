@@ -17,7 +17,7 @@ export const customStructure = async (S: StructureBuilder, context: StructureRes
   return S.list()
     .title('Content')
     .items([
-      S.documentTypeListItem('page').title('All pages'),
+      S.listItem().title(`All Pages`).child(S.documentTypeList('page').title('Pages')),
       await internationalisedPagesStructure(S, context),
       S.divider(),
       S.listItem()
@@ -27,10 +27,12 @@ export const customStructure = async (S: StructureBuilder, context: StructureRes
           S.list()
             .title('Site Settings')
             .items([
+              S.documentTypeListItem('language').title('Languages'),
+              S.documentTypeListItem('market').title('Markets'),
+              S.documentTypeListItem('translation.metadata').title('Translation Metadata'),
+              S.divider(),
               S.documentTypeListItem('listOption').title('List Options'),
               S.divider(),
-              S.documentTypeListItem('language').title('Languages'),
-              S.documentTypeListItem('translation.metadata').title('Translation Metadata'),
             ]),
         ),
     ])

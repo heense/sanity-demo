@@ -1,12 +1,13 @@
+import { TbBrowser } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { PagePreviewMedia } from '../../components/previews/PagePreview'
 import boringList from '../specialFields/boringList'
 import dynamicList from '../specialFields/dynamicList'
-
 export default defineType({
   name: 'page',
   title: 'Page',
   type: 'document',
+  icon: TbBrowser,
   fields: [
     defineField({
       name: 'title',

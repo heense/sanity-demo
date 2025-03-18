@@ -16,6 +16,10 @@ import { RouterPanes } from 'sanity/structure'
 import { apiVersion } from '../../lib/apiVersion'
 import LoadingIndicator from '../LoadingIndicator'
 
+interface TitledListValueWithDescription extends TitledListValue<string> {
+  description: string
+}
+
 const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
   // * Initialize the Studio client
   const client = useClient({ apiVersion }).withConfig({
@@ -38,7 +42,7 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
   const documentLanguage = useFormValue(['language'])
 
   // * States
-  const [listOptions, setListOptions] = useState<TitledListValue<string>[]>([])
+  const [listOptions, setListOptions] = useState<TitledListValueWithDescription[]>([])
   const [loading, setLoading] = useState(true)
 
   // * Fetch and subscribe to the listOption documents
@@ -52,7 +56,8 @@ const DynamicListInput: ComponentType<ArrayOfObjectsInputProps> = (props) => {
         "No title or translation available"
       ), 
       "value": value.current, 
-      "_type": 'dynamicListItem' 
+      "_type": 'dynamicListItem',
+      description
     }`
 
     const params = {

@@ -1,11 +1,11 @@
-import { CommentIcon } from '@sanity/icons'
+import { TbLanguage } from 'react-icons/tb'
 import { defineType } from 'sanity'
 
 export default defineType({
   name: 'language',
   title: 'Language',
   type: 'document',
-  icon: CommentIcon,
+  icon: TbLanguage,
 
   fields: [
     {

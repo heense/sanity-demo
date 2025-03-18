@@ -1,4 +1,4 @@
-import { TagIcon } from '@sanity/icons'
+import { TbCheckbox } from 'react-icons/tb'
 import { defineField, defineType } from 'sanity'
 import { Value } from 'sanity-plugin-internationalized-array'
 
@@ -6,7 +6,7 @@ export default defineType({
   name: 'listOption',
   title: 'List Option',
   type: 'document',
-  icon: TagIcon,
+  icon: TbCheckbox,
 
   fields: [
     defineField({
@@ -52,6 +52,12 @@ export default defineType({
         source: 'title',
       },
       validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string',
     }),
   ],
 })

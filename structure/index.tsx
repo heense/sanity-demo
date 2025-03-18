@@ -2,7 +2,6 @@ import { CogIcon } from '@sanity/icons'
 import { StructureBuilder, StructureResolverContext } from 'sanity/structure'
 import { hiddenDocTypes } from './hiddenDocTypes'
 import { internationalisedPagesStructure } from './internationalisedPagesStructure'
-import { nestedPagesStructure } from './nestedPagesStructure'
 
 /** # Structure Tool with Custom Structure list
  *
@@ -18,7 +17,7 @@ export const customStructure = async (S: StructureBuilder, context: StructureRes
   return S.list()
     .title('Content')
     .items([
-      await nestedPagesStructure(S, context),
+      // await nestedPagesStructure(S, context),
       await internationalisedPagesStructure(S, context),
       S.divider(),
       S.listItem()

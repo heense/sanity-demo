@@ -1,5 +1,10 @@
 {
   "name": "demo-studio",
+  "author": {
+    "name": "Saskia Bobinska",
+    "email": "bobinska.dev@gmail.com",
+    "github": "@bobinska-dev"
+  },
   "private": true,
   "version": "1.0.0",
   "main": "package.json",

@@ -6,7 +6,7 @@ In this repo, you will find a couple of interesting studio solutions - Each bran
 
 ### Main
 
-[main]('https://github.com/bobinska-dev/meetup/tree/main')
+[main]('https://github.com/bobinska-dev/meetup/tree/main') TEST
 Main is the most minimal one and contains only the basic setup.
 
 ### dynamic-lists

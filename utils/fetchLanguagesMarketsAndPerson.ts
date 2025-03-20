@@ -70,6 +70,7 @@ export async function fetchLanguagesMarketsAndPerson() {
               _type: 'person',
               userId: currentUser?.id,
               name: currentUser?.name,
+              profileImage: currentUser?.profileImage,
             })
             .then((personRes) => (newPerson = personRes as Person))
             .catch((err) => console.error(err))

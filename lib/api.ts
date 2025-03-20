@@ -18,7 +18,10 @@ export const apiVersion = assertValue(
   process.env.SANITY_STUDIO_APIVERSION || '2025-03-01',
   'Missing environment variable: SANITY_STUDIO_PROJECT_ID',
 )
-
+export const apiReadToken = assertValue(
+  process.env.SANITY_STUDIO_API_TOKEN,
+  'Missing environment variable',
+)
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage)

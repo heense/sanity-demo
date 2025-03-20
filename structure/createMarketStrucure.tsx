@@ -1,6 +1,6 @@
 import { StructureBuilder, StructureResolverContext } from 'sanity/structure'
 import { apiVersion } from '../lib/api'
-import { Market } from '../utils/fetchMarkets'
+import { Market } from '../utils/fetchLanguagesMarketsAndPerson'
 
 export function createMarketStructure(
   market: Market,

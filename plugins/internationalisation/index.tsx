@@ -1,7 +1,7 @@
 import { documentInternationalization } from '@sanity/document-internationalization'
 import groq from 'groq'
 import { internationalizedArray } from 'sanity-plugin-internationalized-array'
-import { LanguageDoc } from '../../utils/fetchMarkets'
+import { LanguageDoc } from '../../utils/fetchLanguagesMarketsAndPerson'
 
 /*
  * DOC LEVEL  INTERNATIONALISATION

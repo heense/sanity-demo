@@ -1,0 +1,43 @@
+{
+  "_createdAt": "2025-03-19T13:49:35Z",
+  "_id": "330d783a-a4f2-47bc-bcfd-1eed5c1e6695",
+  "_rev": "VIqMru7msaXknlkxIdCOAd",
+  "_type": "person",
+  "_updatedAt": "2025-03-19T14:54:12Z",
+  "bookmarks": [
+    {
+      "_key": "VIqMru7msaXknlkxIdCOEJ",
+      "_type": "bookmark",
+      "note": "test ",
+      "reference": {
+        "_ref": "db197511-e1d5-4fe2-af66-504e9fe3667b",
+        "_type": "page"
+      }
+    }
+  ],
+  "languages": [
+    {
+      "_key": "28122f23e652",
+      "_ref": "3685fc25-1610-4ccf-8418-7fdb1fbc03fd",
+      "_type": "reference"
+    },
+    {
+      "_key": "ec37087e9f91",
+      "_ref": "57a855ad-432c-4d7b-9b68-4bca19cde6c9",
+      "_type": "reference"
+    },
+    {
+      "_key": "fb5faf0fb84c",
+      "_ref": "bfc2a851-d871-41d7-bd6c-441bd815f23c",
+      "_type": "reference"
+    },
+    {
+      "_key": "36fb804a5181",
+      "_ref": "5e2b82f8-be5b-4fc0-9b0f-15899499b35a",
+      "_type": "reference"
+    }
+  ],
+  "name": "Saskia Bobinska",
+  "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocJ7heoy5VmKVRcpiGvCSQoun3pz_1nbSQYqGKryedXpe0VoxkQ=s96-c",
+  "userId": "p32v6Uri3"
+}

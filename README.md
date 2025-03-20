@@ -1,6 +1,6 @@
 # Saskia Bobinska's demo Studio
 
-In this repo you will find a couple of interesting studio solutions - Each branch has its own focus.
+In this repo, you will find a couple of interesting studio solutions - Each branch has its own focus.
 
 ## Branches
 

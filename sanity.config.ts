@@ -19,8 +19,8 @@ const defaultWorkspace = {
   name: 'default',
   title: 'Demo',
 
-  projectId,
-  dataset,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID ?? '',
+  dataset: process.env.SANITY_STUDIO_DATASET ?? '',
   basePath: '/demo',
 
   plugins: [

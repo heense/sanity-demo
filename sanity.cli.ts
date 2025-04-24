@@ -2,8 +2,8 @@ import { defineCliConfig } from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: 'xonzamf8',
-    dataset: 'production',
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+    dataset: process.env.SANITY_STUDIO_DATASET,
   },
   /**
    * Enable auto-updates for studios.
@@ -14,7 +14,7 @@ export default defineCliConfig({
   /**
    * This is needed for the top level await to work during build time.
    */
-  vite: (config) => {
+  vite: (config: any) => {
     return {
       ...config,
       build: {

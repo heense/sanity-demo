@@ -20,10 +20,15 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/icons": "^3.7.0",
+    "@sanity/ui": "^2.15.13",
+    "@sanity/uuid": "^3.0.2",
     "@sanity/vision": "^3.79.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "groq": "^3.86.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rxjs": "^7.8.2",
     "sanity": "^3.79.0",
     "styled-components": "^6.1.8"
   },

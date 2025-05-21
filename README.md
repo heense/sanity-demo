@@ -88,10 +88,9 @@ Check out [recycling-bin branch](https://github.com/bobinska-dev/meetup/tree/rec
 Here we take a step back from all the personalisation and dynamic stuff and focus on a more basic setup, but one that is very useful. This branch shows how to create a recycling bin for your deleted published documents. You can find more about this solution in the branches readme or this guide: <https://www.sanity.io/guides/bin-for-restoring-deleted-documents>
 <br>
 
-|     <img width="678" alt="Screenshot 2025-05-21 at 19 07 39" src="https://github.com/user-attachments/assets/4dc1025c-1b92-4cbc-82d1-09e4d9b90bf9" />
-                                                                                                                                                                                    |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| _Adding more personalisation options for editors can mean a lot less work for you in the long term. A minimal example would be the ability to bookmark other documents and also configure languages to remove those an editor does not speak to remove accidental mistakes and clutter in their structures._ |
+| ![Screenshot 2025-05-21 at 19 07 39](https://github.com/user-attachments/assets/4dc1025c-1b92-4cbc-82d1-09e4d9b90bf9) |
+| :-------------------------------------------------------------------------------------------------------------------: |
+|                _With this solution any published document that is deleted can be restored by editors._                |
 
 <br>
 <br>
